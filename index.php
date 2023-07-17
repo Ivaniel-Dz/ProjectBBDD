@@ -89,7 +89,7 @@
 </section>
 <!-- about section ends -->
 
-<!-- process section starts  -->
+<!-- Servicios section starts  -->
 <section class="process" id="process">
 
    <h1 class="heading">Servicios</h1>
@@ -144,51 +144,70 @@
 </section>
 <!-- process section ends -->
 
-<!-- services section starts  -->
+<!-- Geolocalizacion section starts  -->
 <section class="services" id="services">
 
-   <h1 class="heading">Servicios</h1>
+   <h1 class="heading">Tu Posición</h1>
 
    <div class="box-container container">
+      <!--Contenedor Mapa-->
+      <div id="mapa" style="width: 100%; height: 600px;">
+       <!-- Localizar posición--->
+       <script>
+            var posElt;
+            var posLinkElt;
+    
+            window.addEventListener('load', function(){
+                posElt = document.getElementById('Pos');
+                posLinkElt = document.querySelector('#PosLink > a');
+    
+                navigator.geolocation.getCurrentPosition(geoposOK, geoposKO);
+      
+            });
+    
+            /** @param {GeolocationPosition} pos */
+            function geoposOK(pos) {
+                //Obtenemos latitud y longitud
+                var lat = pos.coords.latitude;
+                var long = pos.coords.longitude;
+                //Mostramos la posición
+                posElt.textContent = `${lat}, ${long}`;
+                //generamos enlace a la posición
+                posLinkElt.href = `https://maps.google.com/?q=${lat},${long}`;
+                //Muestra la posicion actual
+                var mapContainer = document.getElementById("mapa");
+                var mapUrl = "https://www.google.com/maps?q=" + lat + "," + long + "&z=15&output=embed";
+                mapContainer.innerHTML = '<iframe src="' + mapUrl + '" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>';
+            }
+    
+            /** @param {GeolocationPositionError} err */
+            function geoposKO(err) {
+                console.warn(err.message);
+                let msg;
+                switch(err.code) {
+                    case err.PERMISSION_DENIED:
+                        msg = "No nos has dado permiso para obtener tu posición";
+                        break;
+                    case err.POSITION_UNAVAILABLE:
+                        msg = "Tu posición actual no está disponible";
+                        break;
+                     case err.TIMEOUT:
+                         msg = "No se ha podido obtener tu posición en un tiempo prudencial";
+                         break;
+                     default:
+                         msg = "Error desconocido";
+                         break;
+                }
+                posElt.textContent = msg;
+            }
+        </script>
+         <!--Muestra la posicion en texto html en pantalla-->
+         <p>Tu posición es: <span id="Pos">Desconocida</span></p> 
+         <!--Dibuja el mapa (Comentar si solo quieres ver si muestra las cortenadas)-->
+         <p id="PosLink"><a target="_blank"></a></p>
 
-      <div class="box">
-         <img src="images/icon-1.svg" alt="">
-         <h3>Peluquería</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non?</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-2.svg" alt="">
-         <h3>Vacunación</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non?</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-3.svg" alt="">
-         <h3>Higiene dental</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, minima?</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-4.svg" alt="">
-         <h3>Heridas</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, minima?</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-5.svg" alt="">
-         <h3>Análisis</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, minima?</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-6.svg" alt="">
-         <h3>Baño</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, minima?</p>
-      </div>
-
-   </div>
-
+    </div>
+   </div><!-- fin del contenedor-->
 </section>
 <!-- services section ends -->
 

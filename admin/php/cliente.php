@@ -1,6 +1,8 @@
 <?php
     include("index.php");
-    require('../../conexion.php');
+    require('./conexion.php');
+
+    $mostrar = "SELECT * FROM CLIENTES";
 
     $mostrar = "SELECT * FROM TIPO_SERVICIO";
     $tipo = "SELECT * FROM TIPO_CLIENTE";
