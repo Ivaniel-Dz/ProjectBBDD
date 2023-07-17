@@ -119,7 +119,7 @@ include("header.php");
       <li>
     <div class="profile-details">
       <div class="profile-content">
-        <img src="/img/icon.png" alt="profileImg">
+        <img src="/img/icono.png" alt="profileImg">
       </div>
       <div class="name-job">
         <div class="profile_name">Prem Shahi</div>

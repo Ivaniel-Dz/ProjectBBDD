@@ -1,6 +1,5 @@
 <?php
     include("index.php");
-    
     require('../BBDD/conexion.php');
 
     $mostrarCli = "SELECT * FROM CLIENTES 

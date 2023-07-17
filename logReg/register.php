@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,66 +23,59 @@
                         
                         <!-- Barra de progreso -->
                         
-                            <div class="step-progress progress-active" data-title="Dueño"></div>
-                            <div class="step-progress" data-title="Mascota"></div>
-                            <div class="step-progress" data-title="Dirección"></div>
+                            <div class="step-progress progress-active" data-title=""></div>
+                            <div class="step-progress" data-title=""></div>
+                            <div class="step-progress" data-title=""></div>
                         
                         </div>
                         <!-- Entradas de datos -->
+                        <!-- CAPA 1 -->
                         <div class="form-step form-step-active">
                             <div class="title">
                                 <h3>Registrar</h3>
                             </div>
-                            
-                            <div class="input-div one">
+                            <!--Datos a Ingresar-->
+
+                            <div class="input-div pass">
                                 <div class="i">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-lock"></i>
                                 </div>
                                 <div>
                                     <h5 class="datos">Nombre</h5>
-                                    <input type="text" autocomplete="off" class="input" name="nombre" required>
+                                    <input type="text" class="input" name="nombre" autocomplete="off" required>
                                 </div>
                             </div>
-                        
+
                             <div class="input-div pass">
                                 <div class="i">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-lock"></i>
                                 </div>
                                 <div>
                                     <h5 class="datos">Apellido</h5>
-                                    <input type="text" autocomplete="off" class="input" name="apellido" required>
+                                    <input type="text" class="input" name="apellido" autocomplete="off" required>
                                 </div>
                             </div>
 
                             <div class="input-div pass">
                                 <div class="i">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <h5 class="datos">Telefono</h5>
-                                    <input type="text" class="input" name="telefono" autocomplete="off" required>
-                                </div>
-                            </div>
-
-                            <div class="input-div pass">
-                                <div class="i">
-                                    <i class="fas fa-envelope"></i>
+                                    <i class="fas fa-lock"></i>
                                 </div>
                                 <div>
                                     <h5 class="datos">Correo</h5>
-                                    <input type="email" class="input" name="email" autocomplete="off" required>
+                                    <input type="text" class="input" name="correo" autocomplete="off" required>
                                 </div>
                             </div>
+
                             <div class="input-div pass">
                                 <div class="i">
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <div>
                                     <h5 class="datos">Contraseña</h5>
-                                    <input type="password" class="input" name="password" required>
+                                    <input type="text" class="input" name="password" autocomplete="off" required>
                                 </div>
                             </div>
-                            <br>
+                            <!--Fin de Datos a Ingresar-->
                             <div class="">
                                 <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
                             </div>
@@ -92,32 +84,19 @@
                                 <a href="../index.php" class="back">Volver</a>
                                 <a href="login.html" class="btn-iniciar">Ingresa</a>
                             </div>
-                        </div>
+                        </div><!--FIN CAPA 1 -->
 
 
-                        <!-- Registro de la mascota -->
+                        <!-- CAPA 2 -->
                         <div class="form-step">
-                            <div class="title">
-                                <h3>Registra su Mascota</h3>
-                            </div>
-                            
-                            <div class="input-div one">
-                                <div class="i">
-                                    <i class="fas fa-paw"></i>
-                                </div>
-                                <div>
-                                    <h5 class="datos">Nombre</h5>
-                                    <input type="text" class="input" name="nombreMascota" autocomplete="off" required>
-                                </div>
-                            </div>
-                        
+                            <!--Datos a Ingresar-->
                             <div class="input-div pass">
                                 <div class="i">
-                                    <i class="fa-solid fa-shield-dog"></i>
+                                    <i class="fas fa-lock"></i>
                                 </div>
                                 <div>
-                                    <h5 class="datos">Especie</h5>
-                                    <input type="text" class="input" name="especie" autocomplete="off" required>
+                                    <h5 class="datos">Identificación</h5>
+                                    <input type="text" class="input" name="cedula" autocomplete="off" required>
                                 </div>
                             </div>
 
@@ -126,36 +105,11 @@
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <div>
-                                    <h5 class="datos">Raza</h5>
-                                    <input type="text" class="input" name="raza" autocomplete="off" required>
+                                    <h5 class="datos">Telefono</h5>
+                                    <input type="text" class="input" name="telefono" autocomplete="off" required>
                                 </div>
-                            </div>
-                            <div class="input-div pass">
-                                <div class="i">
-                                    <i class="fas fa-lock"></i>
-                                </div>
-                                <div>
-                                    <h5 class="select">Tamaño</h5>
-                                    <select name="size" id="" class="input" require>
-                                        <option value="">Por favor seleccione</option>
-                                        <option value="Pequeña">Pequeña</option>
-                                        <option value="Mediana">Mediana</option>
-                                        <option value="Grande">Grande</option>
-                                    </select>
-                                    <!-- <input type="text" class="input" name="size" autocomplete="off" required> -->
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-prev">Anterior</a>
-                                <a href="#" class="btn btn-next">Siguiente</a>
                             </div>
 
-                        </div>
-                        
-                        <div class="form-step">
-                            <h3>Registra su Mascota</h3>
                             <div class="input-div one">
                                 <div class="i">
                                     <i class="fas fa-calendar-alt"></i>
@@ -165,54 +119,76 @@
                                     <input type="text" class="input" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" name="fechaNacimiento" required>
                                 </div>
                             </div>
-                        
-                            <div class="input-div pass">
-                                <div class="i">
-                                    <i class="fas fa-venus-mars"></i>
-                                </div>
-                                <div>
-                                    <h5 class="select">Sexo</h5>
-                                    <select name="sexo" id="" class="input" required>
-                                        <option value="">Por favor seleccione</option>
-                                        <option value="Macho">Macho</option>
-                                        <option value="Hembra">Hembra</option>
-                                    </select>
-                                    <!-- <input type="text" class="input" name="sexo" autocomplete="off" required> -->
-                                </div>
-                            </div>
 
-                            <div class="input-div pass">
-                                <div class="i">
-                                    <i class="fa fa-syringe"></i>
-                                </div>
-                                <div>
-                                    <h5 class="select">Vacuna</h5>
-                                    <select name="vacuna" id="" class="input" required>
-                                        <option value="">Por favor seleccione</option>
-                                        <option value="Si">Si</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                    <!-- <input type="text" class="input" name="vacuna" autocomplete="off" required> -->
-                                </div>
-                            </div>
                             <div class="input-div pass">
                                 <div class="i">
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <div>
-                                    <h5 class="datos">Color</h5>
-                                    <input type="text" class="input" name="color" autocomplete="off" required>
+                                    <h5 class="select">Genero</h5>
+                                    <select name="genero" id="" class="input" required>
+                                        <option value="">Por favor seleccione</option>
+                                        <option value="Macho">Hombre</option>
+                                        <option value="Hembra">Mujer</option>
+                                        <option value="Hembra">Otro</option>
+                                    </select>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+
+                            <div class="input-div pass">
+                                <div class="i">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div>
+                                    <h5 class="select">Tipo de cuenta</h5>
+                                    <select name="tipo_cuenta" id="tip_cuenta" class="input" required>
+                                    <option hidden value="0">Tipos</option>
+                                    <option value="1">Individual</option>
+                                    <option value="2">Conjunto</option>
+                                    <option value="3">Corporativo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--Fin de Datos a Ingresar-->
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-prev">Anterior</a>
+                                <a href="#" class="btn btn-next">Siguiente</a>
+                            </div>
+
+                        </div><!-- FIN CAPA 2 -->
+                        
+                        <!-- CAPA 3 -->
+                        <div class="form-step">
+
+                            <!--Datos a Ingresar-->
+                            <div class="input-div pass">
+                                <div class="i">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div>
+                                    <input type="text" name="cuenta"  id="cuenta" placeholder="# cuenta" readonly required />
+                                </div>
+                            </div>>
+                            
+                            <div class="input-div pass">
+                                <div class="i">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div>
+                                    <h5 class="datos">Pais</h5>
+                                    <input type="text" class="input" name="password" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <!--Fin de Datos a Ingresar-->
+
                             <div class="btn-group">
                                 <a href="#" class="btn btn-prev">Anterior</a>
                                 <!-- <a href="../pages/usuarios/citas.php" class="btn btn-next">Registrar</a> -->
                                 <input type="submit" class="btn btn-reg" value="Registrar">
                             </div>
 
-                        </div>
+                        </div><!-- FIN CAPA 3 -->
                         
                         
 

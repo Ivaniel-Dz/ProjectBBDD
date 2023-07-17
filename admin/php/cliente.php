@@ -1,6 +1,6 @@
 <?php
     include("index.php");
-    require('../BBDD/conexion.php');
+    require('./conexion.php');
 
     $mostrar = "SELECT * FROM CLIENTES";
 

@@ -1,3 +1,6 @@
+<?php
+include("header.php");
+?>
 <form action="registrar.php" method="POST" class="form">
   <div class="form first">
     <div class="column">
@@ -58,7 +61,6 @@
               <option value="1">Individual</option>
               <option value="2">Conjunto</option>
               <option value="3">Corporativo</option>
-  
           </select>
         </div>
       </div>
