@@ -16,8 +16,6 @@
   sidebarBtn.addEventListener("click", ()=>{
     sidebar.classList.toggle("close");
   });
-
-
   // const tipo_cli = document.querySelector("#tipos");
   // console.log(tipo_cli);
   // tipo_cli.addEventListener("change", () => {

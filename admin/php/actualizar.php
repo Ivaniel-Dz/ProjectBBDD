@@ -1,5 +1,5 @@
 <?php 
-    require('conexion.php');
+    require('../../conexion.php');
     include('index.php');
     $id_cli = $_GET['id'];
     $cliente = "SELECT * FROM CLIENTES WHERE ID_CLIENTE='$id_cli'";

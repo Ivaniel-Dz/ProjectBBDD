@@ -1,7 +1,7 @@
 <?php
     include("index.php");
     
-    require('../BBDD/conexion.php');
+    require('../../conexion.php');
 
     $mostrarCli = "SELECT * FROM CLIENTES 
                     INNER JOIN PRESTAMOS ON CLIENTES.ID_CLIENTE = PRESTAMOS.ID_CLIENTE";
@@ -21,7 +21,7 @@
 
     </div>
     <?php
-    if(oci_num_rows($ejecutar) != 0){
+    if(oci_num_rows($ejecutar) == 0){
         ?>
     <h4>No hay registro</h4>
     <?php

@@ -1,6 +1,6 @@
 <?php
     include("index.php");
-    require('../BBDD/conexion.php');
+    require('../../conexion.php');
 
     $mostrarCli = "SELECT * FROM CLIENTES INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE";
     // $mostrarCuenta = "SELECT * FROM CUENTA";

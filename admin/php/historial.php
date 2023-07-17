@@ -1,10 +1,12 @@
 <?php
     include("index.php");
     
-    require('../BBDD/conexion.php');
+    require('../../conexion.php');
 
-    $mostrarCli = "SELECT * FROM CLIENTES 
-                    INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE";
+    $mostrarCli = "SELECT * FROM CLIENTES
+                    INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE
+                    INNER JOIN TIPO_CLIENTE ON CLIENTES.ID_TIPO_CLI = TIPO_CLIENTE.ID_TIPO_CLI
+                    INNER JOIN CALLE ON CLIENTES.ID_CLIENTE = CALLE.ID_CLIENTE";
     // $mostrarCuenta = "SELECT * FROM CUENTA";
 
     $ejecutar = oci_parse($conexion, $mostrarCli);
@@ -20,13 +22,6 @@
     <br>
 
     </div>
-    <?php
-    if(oci_num_rows($ejecutar) != 0){
-        ?>
-    <h4>No hay registro</h4>
-    <?php
-    }else{
-    ?>
     <table>
         <thead>
             <tr>
@@ -43,20 +38,26 @@
             </tr>
         </thead>
         <tbody>       
-    <?php $id = 0; 
+    <?php 
+        
+        if(oci_num_rows($ejecutar) != 0){
+        ?>
+        <td><h4>No hay registro</h4></td>
+        <?php
+        }else{
+        
+    $id = 0; 
         while($fila = oci_fetch_assoc($ejecutar) ){
             $id++; 
     ?><tr>  
             <td> <?php echo $id ?></td>
-            <?php if ($fila['ID_TIPO_CLI'] == 1001){?>
                     <td><p class="status public">
-                        <?php echo $fila['ID_TIPO_CLI']='Público '; ?> </p></td>
-                <?php } ?>
+                        <?php echo $fila['DESCRIPCION']; ?> </p></td>
             <td> <?php echo $fila['NOMBRE']." "; ?></td>
             <td> <?php echo $fila['APELLIDO'] ."<br>"; ?></td>
             <td> <?php echo $fila['IDENTIFICACION'] ."<br>"; ?></td>
             <td> <?php echo $fila['NUM_CUENTA'] ."<br>"; ?></td>
-            <td> <?php echo $fila['DIRECCION'] ."<br>"; ?></td>
+            <td> <?php echo $fila['CALLE'] ."<br>"; ?></td>
             <td> <?php echo $fila['TELEFONO'] ."<br>"; ?></td>
             <td> <?php echo $fila['EMAIL'] ."<br>"; ?></td>
             <td> 

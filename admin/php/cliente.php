@@ -1,28 +1,14 @@
 <?php
     include("index.php");
-    require('../BBDD/conexion.php');
+    require('../../conexion.php');
 
-    $mostrar = "SELECT * FROM CLIENTES";
-
+    $mostrar = "SELECT * FROM TIPO_SERVICIO";
     $tipo = "SELECT * FROM TIPO_CLIENTE";
 
-    $ejecutar = oci_parse($conexion, $mostrar);
+    $tipoServicio = oci_parse($conexion, $mostrar);
 
     $tipoCliente = oci_parse($conexion, $tipo);
-    
-    //$tipo_cli = $_POST['tipo_cli'];
 
-  //   while($tipo_cli != ""){
-
-  //   $numC = "0";
-  //   if($tipo_cli == 1001){
-  //     $numC = "1001";
-  //   }else if($tipo_cli == 1002){
-  //     $numC = "1002";
-  //   }else if($tipo_cli == 1003) {
-  //     $numC = "1003";
-  //   }
-  // }
 ?>
 <div class="contenido">
     <section class="container">
@@ -43,12 +29,15 @@
             </div>
           </div>
           <div class="input-box">
-            <label>Cuenta</label>
+            <label>Servicio</label>
             <div class="select-box">
               <select name="tipo_cuenta" id="tipos">
+              <?php
+                  oci_execute($tipoServicio);
+                  while($row = oci_fetch_assoc($tipoServicio) ){
+                ?>
                 <option hidden value="0">Tipos</option>
-                <option value="1">Ahorro</option>
-                <option value="2">Préstamo</option>
+                <option value="<?php echo $row['ID_SERVICIO'] ;?>"><?php echo $row['SERVICIO']; }?></option>  
               </select>
             </div>
           </div>
@@ -60,17 +49,17 @@
         if (isset($_POST["tipo_cli"]) && isset($_POST["tipo_cuenta"])) {
           $opcionSeleccionada = $_POST["tipo_cli"];
           $cuentaSelec = $_POST["tipo_cuenta"];
-          if($opcionSeleccionada == "1001" && $cuentaSelec == 1){
-            include('form-cliente.php');
-          }else if($opcionSeleccionada == "1002" && $cuentaSelec == 1){              
-            include('form-empresa.php');
-          }else if($opcionSeleccionada == "1003" && $cuentaSelec == 1){
+          if($opcionSeleccionada == "1" && $cuentaSelec == 1){
+            include('form-cliente-ah.php');
+          }else if($opcionSeleccionada == "2" && $cuentaSelec == 1){              
+            include('form-emp-ah.php');
+          }else if($opcionSeleccionada == "3" && $cuentaSelec == 1){
             echo '<h1>Seleccionaste Privado</h1>';
-          }else if($opcionSeleccionada == "1001" && $cuentaSelec == 2){
-            echo '<h1>Seleccionaste Prestamo Público</h1>';
-          }else if($opcionSeleccionada == "1002" && $cuentaSelec == 2){              
-            echo '<h1>Seleccionaste Prestamo gubernamental</h1>';
-          }else if($opcionSeleccionada == "1003" && $cuentaSelec == 2){
+          }else if($opcionSeleccionada == "1" && $cuentaSelec == 2){
+            include('form-cliente-prest.php');
+          }else if($opcionSeleccionada == "2" && $cuentaSelec == 2){              
+            include('form-emp-prest.php');
+          }else if($opcionSeleccionada == "3" && $cuentaSelec == 2){
             echo '<h1>Seleccionaste Prestamo Privado</h1>';
           }
 

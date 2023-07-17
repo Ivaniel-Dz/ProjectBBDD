@@ -218,7 +218,6 @@
    <div class="grupo-1">
       <div class="box">
          <div class="icon">
-            <i class=""></i>
             <img src="./img/icono.png" width="35" >
             <a href="#" class="logo">Intermediario Financiera <span>IOD</span>
          </div>
@@ -229,7 +228,7 @@
          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
       </div>
       <div class="box">
-            <h2>Siguenos</h2>
+         <h2>Siguenos</h2>
          <div class="red-social">
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -245,7 +244,7 @@
 <!-- footer section ends -->
 
 <!-- custom js file link  -->
-<script src="./js/header.js"></script>
+<script src="./js/logReg/header.js"></script>
 
 </body>
 </html>
