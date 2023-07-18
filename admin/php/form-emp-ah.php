@@ -1,35 +1,85 @@
-<form action="registrar.php" method="POST" class="form">
+<form action="registra-emp-ah.php" method="POST" class="form">
     <div class="form first">
     <div class="column">
         <div class="input-box">
             <label>Nombre Empresa</label>
-            <input type="text" name="nombre" placeholder="Ingrese el nombre" required />
+            <input type="text" name="nombre_emp" placeholder="Ingrese el nombre" required />
         </div>
         <div class="input-box">
             <label>Acrónimo</label>
-            <input type="text" name="apellido" placeholder="Ingrese el apellido" required />
+            <input type="text" name="acronimo" placeholder="Ingrese el acronimo" required />
         </div>
-    </div>
-
-    <div class="column">
         <div class="input-box">
             <label>NIF</label>
-            <input type="text" name="iden" placeholder="Ingrese la Identificación" required />
-        </div>
-        <div class="input-box">
-            <label>E-mail</label>
-            <input type="text" name="correo" placeholder="Enter email address" required />
+            <input type="text" name="nif" placeholder="Ingrese la Identificación" required />
         </div>
     </div>
 
     <div class="column">
         <div class="input-box">
             <label>Telefono</label>
-            <input type="text" name="telefono" placeholder="Enter phone number" required />
+            <input type="text" name="telefono_emp" placeholder="Ingrese el telefono" required />
         </div>
         <div class="input-box">
-            <label>Dirección</label>
-            <input type="text" placeholder="Ingrese la dirección" required />
+            <label>E-mail</label>
+            <input type="text" name="correo_emp" placeholder="Ingrese el correo" required />
+        </div>
+        <div class="input-box">
+            <label>Contraseña</label>
+            <input type="text" name="contra_emp" id="contra" placeholder="Ingrese la contraseña" required />
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="input-box">
+            <label>Provincia</label>
+            <div class="select-box">
+                <select name="prov_empr" id="prov">
+                    <option hidden value="0">Elige</option>
+                    <option value="Panama">Panamá</option>
+                    <option value="Colon">Colón</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-box">
+            <label>Distrito</label>
+            <div class="select-box">
+                <select name="dist_empr" id="distrito">
+                    <option hidden value="0">Elige</option>
+                    <option value="Edificio">Edificio</option>
+                    <option value="Casa">Casa</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-box">
+            <label>Corregimiento</label>
+            <div class="select-box">
+                <select name="correg_emp" id="corregimiento">
+                    <option hidden value="0">Elige</option>
+                    <option value="Edificio">Edificio</option>
+                    <option value="Casa">Casa</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="input-box">
+            <label>Calle</label>
+            <input type="text" name="calle_empr" placeholder="Ingrese la dirección" required />
+        </div>
+        <div class="input-box">
+            <label>Tipo Local</label>
+            <div class="select-box">
+                <select name="tipo_local" id="local">
+                    <option hidden value="0">Elige</option>
+                    <option value="Edificio">Edificio</option>
+                    <option value="Casa">Casa</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-box">
+            <label># Local</label>
+            <input type="text" name="num_local" placeholder="Ingrese la dirección" required />
         </div>
     </div>
     </div>
@@ -42,7 +92,7 @@
             <div class="input-box">
                 <label>Tipo Cuenta</label>
                 <div class="select-box">
-                    <select name="tipo_cli" id="tipos">
+                    <select name="tipo_cuent_emp" id="tipos">
                         <option hidden value="0">Elige</option>
                         <option value="2">Corporativo</option>
                         
@@ -56,33 +106,31 @@
                         <option hidden value="0">Elige</option>
                         <option value="2">Gubernamental</option>
                         <option value="3">Privado</option>
-                        
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="column">
             <div class="input-box">
                 <label>Servicio</label>
                 <input type="text" name="servicio" value="Ahorro" readonly required />
             </div>
-            <div class="input-box">
-                <label>Saldo</label>
-                <input type="number" name="saldo" placeholder="ingrese el monto" required />
-            </div>
         </div>
         <div class="column">
             <div class="input-box">
+                <label>Saldo</label>
+                <input type="number" name="saldo_empr" placeholder="ingrese el monto" required />
+            </div>
+            <div class="input-box">
                 <label># Cuenta</label>
-                <input type="text" name="cuenta" id="cuenta" placeholder="# cuenta" readonly required />
+                <input type="text" name="cuenta_emp" id="cuenta" placeholder="# cuenta" readonly required />
             </div>
             <div class="input-box">
                 <label>Fecha Apertura</label>
-                <input type="text" name="fecha" id="fecha" readonly required />
+                <input type="text" name="fecha_emp" id="fecha" readonly required />
             </div>
         </div>
     </div>
-    <button>Registrar</button>
+        <button>Registrar</button>
+   
 </form>
  
 <script>

@@ -1,5 +1,7 @@
 <?php 
-  require('../../conexion.php');
+
+  require("../../php/conexion.php");
+
   $cuenta = "SELECT * FROM TIPO_CUENTA";
   $cliente = "SELECT * FROM TIPO_CLIENTE";
 

@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8">
     <title> Financiera IOD</title>
+    <link rel="icon" href="../../img/icono.png">
+
     <link rel="stylesheet" href="../css/form-cliente.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/historial.css">

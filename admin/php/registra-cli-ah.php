@@ -1,13 +1,16 @@
 <?php
-require('../../conexion.php');
+
+require("../../php/conexion.php");
 require('../../php/variablesGlobales.php');
 
     $id_cliente = 0;
     $id_cuenta = 0;
     $id_dir = 1;
     $id_serv = 1;
+    $id_ca = 0;
 
-    $insertarCliente = "INSERT INTO CLIENTES VALUES(:id, :tipo, :nom, :apell, :iden, :dir, :tel, :mail, :pass, :genero, :fecha_naci, :servicio)";
+    $insertarCliente = "INSERT INTO CLIENTES (ID_CLIENTE, ID_TIPO_CLI,NOMBRE,APELLIDO,IDENTIFICACION,ID_DIR,TELEFONO,EMAIL,PASSW,GENERO,FECHA_NAC,ID_SERV)
+    VALUES(:id, :tipo, :nom, :apell, :iden, :dir, :tel, :mail, :pass, :genero, :fecha_naci, :servicio)";
     $stmt = oci_parse($conexion, $insertarCliente);
         
     $id_cliente = +1;
@@ -53,6 +56,9 @@ require('../../php/variablesGlobales.php');
     
     if ($resultCli &&  $insertarCalle && $resultCuenta) {
         echo "Datos insertados correctamente.";
+        ?>
+        <a href="historial.php"></a>
+        <?php
     } else {
         $e = oci_error($stmt);
         $e = oci_error($cuenta);
@@ -63,5 +69,7 @@ require('../../php/variablesGlobales.php');
     oci_free_statement($stmt);
     oci_free_statement($cuenta);
     oci_free_statement($calle);
+
+
     oci_close($conexion);
 ?>

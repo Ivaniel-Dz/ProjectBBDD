@@ -1,7 +1,7 @@
 <?php
-    include("index.php");
+    include("dashboard.php");
     
-    require('../../conexion.php');
+    require("../../php/conexion.php");
 
     $mostrarCli = "SELECT * FROM CLIENTES 
                     INNER JOIN PRESTAMOS ON CLIENTES.ID_CLIENTE = PRESTAMOS.ID_CLIENTE";

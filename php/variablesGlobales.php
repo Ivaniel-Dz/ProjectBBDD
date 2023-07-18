@@ -22,4 +22,6 @@
     $num_cuenta = $_POST['cuenta'];
     $saldo = $_POST['saldo'];
     $fecha = $_POST['fecha'];
+
+
 ?>

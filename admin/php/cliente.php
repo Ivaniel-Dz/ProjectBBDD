@@ -1,6 +1,7 @@
 <?php
-    include("index.php");
-    require('./conexion.php');
+    include("dashboard.php");
+    
+    require("../../php/conexion.php");
 
     $mostrar = "SELECT * FROM CLIENTES";
 

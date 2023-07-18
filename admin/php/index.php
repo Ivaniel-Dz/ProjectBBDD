@@ -1,147 +1,80 @@
 <?php
-include("header.php");
+    include("dashboard.php");
+    
+    require("../../php/conexion.php");
+
+
+    $mostrarCli = "SELECT * FROM CLIENTES
+                    INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE
+                    INNER JOIN TIPO_CLIENTE ON CLIENTES.ID_TIPO_CLI = TIPO_CLIENTE.ID_TIPO_CLI
+                    INNER JOIN CALLE ON CLIENTES.ID_CLIENTE = CALLE.ID_CLIENTE";
+    // $mostrarCuenta = "SELECT * FROM CUENTA";
+
+    $ejecutar = oci_parse($conexion, $mostrarCli);
+    // $cuenta = oci_parse($conexion, $mostrarCuenta);
+    oci_execute($ejecutar); 
+    // oci_execute($cuenta);
+    
 ?>
-<div class="sidebar close">
-    <div class="logo-details">
-      <i class='bx bxs-bank'></i>
-      <span class="logo_name">Financiera IOD</span>
+<div class="historial">
+    <div class="container"> 
+    <div class="form">
+    <header>Historial de clientes</header><br>
+    <br>
+
     </div>
-    <ul class="nav-links">
-      <li>
-        <div class="iocn-link">
-          <a href="historial.php">
-          <i class='bx bx-grid-alt' ></i>
-            <span class="link_name">Historial</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Historial</a></li>
-          <li><a href="historial.php">Ahorros</a></li>
-          <li><a href="prestamo.php">Préstamos</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-collection' ></i>
-            <span class="link_name">Category</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Category</a></li>
-          <li><a href="#">HTML & CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">PHP & MySQL</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Posts</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Login Form</a></li>
-          <li><a href="#">Card Design</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a href="cliente.php">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="link_name">Nuevo Cliente</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Nuevo Cliente</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-line-chart' ></i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-plug' ></i>
-            <span class="link_name">Plugins</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a href="#">
-          <i class='bx bx-compass' ></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
-<<<<<<< HEAD
-        <img src="../../img/icon.png" alt="profileImg">
-=======
-        <img src="/img/icono.png" alt="profileImg">
->>>>>>> 788627474160f1b0b51bfdad4e936daacec21310
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Prem Shahi</div>
-        <div class="job">Web Desginer</div>
-      </div>
-      <a href="../../index.php">
-      <i class='bx bx-log-out' >
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo Cliente</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Ident</th>
+                <th># Cuenta</th>
+                <th>Dirección</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Opción</th>
+            </tr>
+        </thead>
+        <tbody>       
+    <?php 
         
-        </i>
-        </a>
-    </div>
-  </li>
-</ul>
-  </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">Admin</span>
-    </div>
-
-    <div class="home">
+        if(oci_num_rows($ejecutar) != 0){
+        ?>
+        <td><h4>No hay registro</h4></td>
+        <?php
+        }else{
+        
+    $id = 0; 
+        while($fila = oci_fetch_assoc($ejecutar) ){
+            $id++; 
+    ?><tr>  
+            <td> <?php echo $id ?></td>
+                    <td><p class="status public">
+                        <?php echo $fila['DESCRIPCION']; ?> </p></td>
+            <td> <?php echo $fila['NOMBRE']." "; ?></td>
+            <td> <?php echo $fila['APELLIDO'] ."<br>"; ?></td>
+            <td> <?php echo $fila['IDENTIFICACION'] ."<br>"; ?></td>
+            <td> <?php echo $fila['NUM_CUENTA'] ."<br>"; ?></td>
+            <td> <?php echo $fila['CALLE'] ."<br>"; ?></td>
+            <td> <?php echo $fila['TELEFONO'] ."<br>"; ?></td>
+            <td> <?php echo $fila['EMAIL'] ."<br>"; ?></td>
+            <td> 
+                <a href="actualizar.php">Editar</a>
+                <a href="eliminar.php">Elim</a>
+            </td>
+        <?php
+        }
+    }
+    oci_free_statement($ejecutar);
+    ?>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</div>
+<?php
+    include("footer.php");
+?>

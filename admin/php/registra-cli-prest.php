@@ -1,5 +1,6 @@
 <?php
-require('../../conexion.php');
+
+require("../../php/conexion.php");
 require('../../php/variablesGlobales.php');
 
     $id_cliente = 0;

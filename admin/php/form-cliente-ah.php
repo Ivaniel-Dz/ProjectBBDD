@@ -1,5 +1,7 @@
 <?php 
-  require('../../conexion.php');
+  
+  require("../../php/conexion.php");
+
   $cuenta = "SELECT * FROM TIPO_CUENTA";
   $cliente = "SELECT * FROM TIPO_CLIENTE";
 
@@ -9,7 +11,7 @@
   oci_execute($tipo_client);
 ?>
 
-<form action="registrar-cli.ah.php" method="POST" class="form">
+<form action="registra-cli-ah.php" method="POST" class="form">
   <div class="form first">
     <div class="column">
       <div class="input-box">
@@ -50,22 +52,15 @@
         <input type="text" name="nacionalidad" placeholder="Ingrese la Nacionalidad"  />
       </div>
       
-      <div class="gender-box">
+      <div class="input-box">
         <label>Género</label>
-        <div class="gender-option">
-          <div class="gender">
-            <input type="radio" id="check-male" name="genero" checked />
-            <label for="check-male" value="Masculino">Masculino</label>
-          </div>
-          <div class="gender">
-            <input type="radio" id="check-female" name="genero" />
-            <label for="check-female" value="Femenino">Femenino</label>
-          </div>
-          <!-- <div class="gender">
-            <input type="radio" id="check-other" name="genero" />
-            <label for="check-other">prefiero no decir</label>
-          </div> -->
-        </div>
+        <div class="select-box">
+          <select name="genero" id="genero">
+              <option hidden value="0">Seleccione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+          </select>
+      </div>
       </div>
     </div>
 
@@ -101,7 +96,7 @@
       </div>
       <div class="input-box">
         <label># Casa</label>
-        <input type="number" name="numCasa" placeholder="Ingrese número de casa"/>
+        <input type="text" name="numCasa" placeholder="Ingrese número de casa"/>
       </div>
     </div>
     </div>
