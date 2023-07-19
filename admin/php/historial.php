@@ -5,9 +5,9 @@
 
 
     $mostrarCli = "SELECT * FROM CLIENTES
-                    INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE
-                    INNER JOIN TIPO_CLIENTE ON CLIENTES.ID_TIPO_CLI = TIPO_CLIENTE.ID_TIPO_CLI
-                    INNER JOIN CALLE ON CLIENTES.ID_CLIENTE = CALLE.ID_CLIENTE";
+    INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE
+    INNER JOIN TIPO_CLIENTE ON CLIENTES.ID_TIPO_CLI = TIPO_CLIENTE.ID_TIPO_CLI
+    INNER JOIN CALLE ON CLIENTES.ID_CLIENTE = CALLE.ID_CLIENTE";
     // $mostrarCuenta = "SELECT * FROM CUENTA";
 
     $ejecutar = oci_parse($conexion, $mostrarCli);
@@ -51,9 +51,12 @@
         while($fila = oci_fetch_assoc($ejecutar) ){
             $id++; 
     ?><tr>  
-            <td> <?php echo $id ?></td>
-                    <td><p class="status public">
-                        <?php echo $fila['DESCRIPCION']; ?> </p></td>
+            <td> <?php echo $fila['ID_CLIENTE']; ?></td>
+            <td><?php 
+            
+                echo $fila['DESCRIPCION']; ?>
+            
+            </td>
             <td> <?php echo $fila['NOMBRE']." "; ?></td>
             <td> <?php echo $fila['APELLIDO'] ."<br>"; ?></td>
             <td> <?php echo $fila['IDENTIFICACION'] ."<br>"; ?></td>
@@ -62,8 +65,8 @@
             <td> <?php echo $fila['TELEFONO'] ."<br>"; ?></td>
             <td> <?php echo $fila['EMAIL'] ."<br>"; ?></td>
             <td> 
-                <a href="actualizar.php">Editar</a>
-                <a href="eliminar.php">Elim</a>
+                <a href="./actualizarCliente.php?id=<?php echo $fila['ID_CLIENTE'];?>"><i class="fas fa-user-edit"></i></a>
+                <a href="./eliminarCliente.php?id=<?php echo $fila['ID_CLIENTE'];?>"><i class="fas fa-trash-alt"></i></a>
             </td>
         <?php
         }

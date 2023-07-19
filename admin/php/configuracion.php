@@ -1,6 +1,5 @@
 <?php
  include("dashboard.php");
-    
  require("../../php/conexion.php");
 
 ?>
@@ -80,12 +79,11 @@
     </div>
 
   </div>
-  <button>Submit</button>
+  <button>Actualizar</button>
 </form>
 </section>
 </div>
 
-
 <?php 
-  include("./footer.php");
+    include("footer.php");
 ?>

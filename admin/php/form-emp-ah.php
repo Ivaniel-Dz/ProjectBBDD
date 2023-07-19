@@ -31,36 +31,51 @@
     </div>
 
     <div class="column">
-        <div class="input-box">
-            <label>Provincia</label>
-            <div class="select-box">
-                <select name="prov_empr" id="prov">
-                    <option hidden value="0">Elige</option>
-                    <option value="Panama">Panamá</option>
-                    <option value="Colon">Colón</option>
-                </select>
-            </div>
+      <div class="input-box">
+        <label>Provincia</label>
+        <div class="select-box">
+          <select name="provincia" id="provincia">
+            <option hidden value="0">Seleccione</option>
+            <?php   
+              $provincias = "SELECT * FROM PROVINCIA";
+              $prov = oci_parse($conexion, $provincias);
+              oci_execute($prov);
+              while($filaprov = oci_fetch_assoc($prov)){
+            ?>
+            <option value="<?php echo $filaprov['ID_PROVINCIA']; ?>"><?php echo $filaprov['PROVINCIA']; }?></option>
+          </select>
         </div>
-        <div class="input-box">
-            <label>Distrito</label>
-            <div class="select-box">
-                <select name="dist_empr" id="distrito">
-                    <option hidden value="0">Elige</option>
-                    <option value="Edificio">Edificio</option>
-                    <option value="Casa">Casa</option>
-                </select>
-            </div>
+      </div>
+      <div class="input-box">
+        <label>Distrito</label>
+        <div class="select-box">
+          <select name="distrito" id="distrito">
+            <option hidden value="0">Seleccione</option>
+            <?php   
+              $distrito = "SELECT * FROM DISTRITO";
+              $dist = oci_parse($conexion, $distrito);
+              oci_execute($dist);
+              while($filadist = oci_fetch_assoc($dist)){
+            ?>
+            <option value="<?php echo $filadist['ID_DISTRITO']; ?>"><?php echo $filadist['DISTRITO']; }?></option>
+          </select>
         </div>
-        <div class="input-box">
-            <label>Corregimiento</label>
-            <div class="select-box">
-                <select name="correg_emp" id="corregimiento">
-                    <option hidden value="0">Elige</option>
-                    <option value="Edificio">Edificio</option>
-                    <option value="Casa">Casa</option>
-                </select>
-            </div>
+      </div>
+      <div class="input-box">
+        <label>Corregimiento</label>
+          <div class="select-box">
+          <select name="corregimiento" id="corregimiento">
+            <option hidden value="0">Seleccione</option>
+            <?php   
+              $corregimiento = "SELECT * FROM CORREGIMIENTO";
+              $corr = oci_parse($conexion, $corregimiento);
+              oci_execute($corr);
+              while($filacorr = oci_fetch_assoc($corr)){
+            ?>
+            <option value="<?php echo $filacorr['ID_CORREG']; ?>"><?php echo $filacorr['CORREGIMIENTO']; }?></option>
+          </select>
         </div>
+      </div>
     </div>
     <div class="column">
         <div class="input-box">
@@ -83,9 +98,6 @@
         </div>
     </div>
     </div>
-
-    <button>Siguiente</button>
-
     <div class="form second">
 
         <div class="column">

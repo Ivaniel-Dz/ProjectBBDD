@@ -66,16 +66,49 @@
 
     <div class="column">
       <div class="input-box">
-          <label>Provincia</label>
-          <input type="text" name="provincia" placeholder="Ingrese la provincia"  />
+        <label>Provincia</label>
+        <div class="select-box">
+          <select name="provincia" id="provincia">
+            <option hidden value="0">Seleccione</option>
+            <?php   
+              $provincias = "SELECT * FROM PROVINCIA";
+              $prov = oci_parse($conexion, $provincias);
+              oci_execute($prov);
+              while($filaprov = oci_fetch_assoc($prov)){
+            ?>
+            <option value="<?php echo $filaprov['PROVINCIA']; ?>"><?php echo $filaprov['PROVINCIA']; }?></option>
+          </select>
+        </div>
       </div>
       <div class="input-box">
         <label>Distrito</label>
-        <input type="text" name="distrito" placeholder="Ingrese el distrito"  />
+        <div class="select-box">
+          <select name="distrito" id="distrito">
+            <option hidden value="0">Seleccione</option>
+            <?php   
+              $distrito = "SELECT * FROM DISTRITO";
+              $dist = oci_parse($conexion, $distrito);
+              oci_execute($dist);
+              while($filadist = oci_fetch_assoc($dist)){
+            ?>
+            <option value="<?php echo $filadist['DISTRITO']; ?>"><?php echo $filadist['DISTRITO']; }?></option>
+          </select>
+        </div>
       </div>
       <div class="input-box">
         <label>Corregimiento</label>
-        <input type="text" name="corregimiento" placeholder="Ingrese el Corregimiento"  />
+          <div class="select-box">
+          <select name="corregimiento" id="corregimiento">
+            <option hidden value="0">Seleccione</option>
+            <?php   
+              $corregimiento = "SELECT * FROM CORREGIMIENTO";
+              $corr = oci_parse($conexion, $corregimiento);
+              oci_execute($corr);
+              while($filacorr = oci_fetch_assoc($corr)){
+            ?>
+            <option value="<?php echo $filacorr['CORREGIMIENTO']; ?>"><?php echo $filacorr['CORREGIMIENTO']; }?></option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -89,20 +122,17 @@
         <div class="select-box">
           <select name="hogar" id="tip_resi">
               <option hidden value="0">Tipos</option>
-              <option value="1">Casa</option>
-              <option value="2">Apartamento</option>
+              <option value="Casa">Casa</option>
+              <option value="Apartamento">Apartamento</option>
           </select>
       </div>
       </div>
       <div class="input-box">
-        <label># Casa</label>
+        <label># Residencia</label>
         <input type="text" name="numCasa" placeholder="Ingrese número de casa"/>
       </div>
     </div>
     </div>
-    <button>Siguiente</button>
-
-
   <div class="second form">
   <div class="column">
       <div class="input-box">

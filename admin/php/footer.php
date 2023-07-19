@@ -24,7 +24,7 @@
   //   var optionSelect =tipo_cli.options[tipo_cli.selectedIndex];
   //   let inputResult = document.querySelector("#cuenta").value = (optionSelect.value);
   // });
-
+  src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
   </script>
 </body>
 </html>

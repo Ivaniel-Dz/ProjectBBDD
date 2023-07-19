@@ -1,5 +1,7 @@
 <?php
-include("header.php");
+  require("../../php/conexion.php");
+  include("header.php");
+  
 ?>
 <div class="sidebar close">
     <div class="logo-details">
@@ -9,7 +11,7 @@ include("header.php");
     <ul class="nav-links">
       <li>
         <div class="iocn-link">
-          <a href="index.php">
+          <a href="historial.php">
           <i class='bx bx-grid-alt' ></i>
             <span class="link_name">Historial</span>
           </a>
@@ -97,8 +99,8 @@ include("header.php");
         <img src="../../img/icon.png" alt="profileImg">
       </div>
       <div class="name-job">
-        <div class="profile_name">Prem Shahi</div>
-        <div class="job">Web Desginer</div>
+        <div class="profile_name">Admin</div>
+        <div class="job">Admin</div>
       </div>
       <a href="../../index.php">
       <i class='bx bx-log-out' >

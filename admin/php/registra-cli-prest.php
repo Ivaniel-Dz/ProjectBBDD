@@ -2,6 +2,7 @@
 
 require("../../php/conexion.php");
 require('../../php/variablesGlobales.php');
+require('../../php/variablesGlobCuentaCli.php');
 
     $id_cliente = 0;
     $id_cuenta = 0;

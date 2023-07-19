@@ -22,7 +22,7 @@ oci_execute($respuestaUser);
 while($buscarAdmin = oci_fetch_assoc($respuestaAdmin)){
     
     if($buscarAdmin['ID_ROL'] == 1){
-        header("location:../admin/php/");
+        header("location:../admin/php/historial.php");
     }
     else{
         echo '<script>
@@ -30,17 +30,17 @@ while($buscarAdmin = oci_fetch_assoc($respuestaAdmin)){
             window.history.go(-1);  
         </script>';
     }
-        
+    
 }
 
 while($buscarUser = oci_fetch_assoc($respuestaUser)){
     if($buscarUser['ID_ROL'] == 2){
-            header("location:../client/php/index.php");
+            header("location:../client/php/historial.php");
     }
     else{
         echo '<script>
             alert("Contraseña o Usuario Incorrecto");
-             //window.history.go(-1);  
+            window.history.go(-1);  
         </script>';
     }
 }

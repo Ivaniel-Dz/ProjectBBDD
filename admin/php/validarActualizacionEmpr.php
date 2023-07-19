@@ -8,7 +8,6 @@
     require("../../php/variablesGlobales.php");
     require("../../php/variablesGlobCuentaCli.php");
 
-  
     $id_cli = $_POST['id_cli'];
 
     $actualizar = "UPDATE CLIENTES SET 
@@ -38,8 +37,8 @@ if(oci_execute($resultado,OCI_COMMIT_ON_SUCCESS)){
     </script>';
 } else{
     echo '<script> 
-            swal("No se Actualizo correctamente"); 
-            window.history.go(-1);
+                swal("No se Actualizo correctamente"); 
+                window.history.go(-1);
         </script>';
 }
 oci_free_statement($resultado);
