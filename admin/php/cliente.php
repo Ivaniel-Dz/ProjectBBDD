@@ -54,6 +54,7 @@
           $cuentaSelec = $_POST["tipo_cuenta"];
           if($opcionSeleccionada == "1" && $cuentaSelec == 1){
             include('form-cliente-ah.php');
+            
           }else if($opcionSeleccionada == "2" && $cuentaSelec == 1){              
             include('form-emp-ah.php');
           }else if($opcionSeleccionada == "3" && $cuentaSelec == 1){

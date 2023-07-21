@@ -1,5 +1,13 @@
 <?php
 include("header.php");
+require("../../php/conexion.php");
+
+session_start();
+ob_start();
+$indice = $_SESSION['indice'];
+$cuenta = "SELECT * FROM CLIENTES WHERE EMAIL=:id";
+$cuentaIni = oci_parse($conexion, $cuenta);
+
 ?>
 <div class="sidebar close">
     <div class="logo-details">
@@ -68,11 +76,20 @@ include("header.php");
       <li>
     <div class="profile-details">
       <div class="profile-content">
-        <img src="/img/icon.png" alt="profileImg">
+        <img src="../../img/icono.png" alt="profileImg">
       </div>
       <div class="name-job">
-        <div class="profile_name">Prem Shahi</div>
-        <div class="job">Web Desginer</div>
+        <?php 
+        oci_bind_by_name($cuentaIni, 'id',$indice);
+          oci_execute($cuentaIni);
+          
+          while($fila = oci_fetch_assoc($cuentaIni)){
+        ?>
+            <div class="profile_name"><?php echo $fila['NOMBRE'];  
+            echo ' ';
+            echo $fila['APELLIDO'];  
+            ?></div>
+        <div class="job"><?php echo $fila['IDENTIFICACION']; }?></div>
       </div>
       <a href="../../index.php">
         <i class='bx bx-log-out' ></i>

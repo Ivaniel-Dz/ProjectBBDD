@@ -1,9 +1,11 @@
 <?php
     require("../../php/conexion.php");
 
-    session_start();
-    ob_start();
+    // session_start();
+    // ob_start();
     $indice = $_SESSION['indice'];
+    $cuenta = "SELECT * FROM CLIENTES WHERE EMAIL=:id";
+
 ?>
 
 <form action="registra-transf.php" method="POST" class="form">
@@ -13,15 +15,19 @@
     <div class="column">
       <div class="input-box">
       <?php
-          $cuenta = "SELECT * FROM CLIENTES
-          INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE WHERE EMAIL=:id";
+          $cuenta = "SELECT * FROM CLIENTES INNER JOIN CUENTA ON CLIENTES.ID_CLIENTE = CUENTA.ID_CLIENTE WHERE EMAIL=:id";
           $cuentaIni = oci_parse($conexion, $cuenta);
 
           oci_bind_by_name($cuentaIni, 'id',$indice);
           oci_execute($cuentaIni);
+          
           while($fila = oci_fetch_assoc($cuentaIni)){
-        ?>
+        ?> 
+
+        <input type="hidden" value="<?php echo $fila["ID_CLIENTE"]; ?>" name="id_cliente">
         <input type="hidden" value="<?php echo $fila["ID_TIPO_CUENTA"]; ?>" name="tipo_cuenta">
+        <input type="hidden" value="<?php echo $fila["ID_CUENTA"]; ?>" name="id_cuenta">
+        
         <label># Cuenta</label>
         <input type="text" name="mi_cuenta" readonly value="<?php echo $fila['NUM_CUENTA'];?>"  />
       </div>
@@ -39,7 +45,7 @@
     <div class="column">
       <div class="input-box">
           <label># Cuenta</label>
-          <input type="text" name="otra_cuenta" placeholder="Ingrese el # cuenta"  />
+          <input type="text" name="cuenta" placeholder="Ingrese el # cuenta"  />
       </div>
       <div class="input-box">
         <label>Nombre Cuenta </label>
@@ -47,7 +53,7 @@
       </div>
       <div class="input-box">
         <label>Monto a Pagar</label>
-        <input type="number" name="saldo" placeholder="Ingrese el monto"  />
+        <input type="number" name="saldo" id="saldo" placeholder="Ingrese el monto"  />
       </div>
     </div>
 
@@ -62,8 +68,11 @@
       </div>
       <div class="input-box">
         <label>Monto Salida</label>
-        <input type="number" name="saldo_sal" id="hora"   />
+        <input type="number" name="saldo_sal" id="saldo_sal" />
       </div>
+      
+        <input hidden type="number" name="transaccion" value="4"  />
+      
     </div>
     </div>
     <button>Pagar</button>
@@ -83,5 +92,11 @@
   hora = hora % 12;
   hora = hora ? hora : 12;
   let hourNow =document.querySelector("#hora").value = (hora+':'+minuto+' ' + amPm);
+
+  var saldo =document.getElementById("saldo");
+  var saldo_salida =document.getElementById("saldo_sal");
+  saldo.addEventListener("input", function(){
+    saldo_salida.value = saldo.value;
+  });
 
 </script>

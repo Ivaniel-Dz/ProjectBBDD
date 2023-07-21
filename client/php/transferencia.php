@@ -62,6 +62,7 @@
         <label>Hora</label>
         <input type="text" name="hora" id="hora" readonly  />
       </div>
+      <input hidden type="number" name="transaccion" value="3"  />
     </div>
     </div>
     <button>Enviar</button>

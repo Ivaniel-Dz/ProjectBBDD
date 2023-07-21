@@ -7,13 +7,13 @@ require('../../php/variablesGlobCuentaCli.php');
     $id_cliente = 0;
     $id_cuenta = 0;
     $id_dir = 1;
-    $id_serv = 1;
+    $id_serv = 2;
 
-    $insertarCliente = "INSERT INTO CLIENTES VALUES(:id, :tipo, :nom, :apell, :iden, :dir, :tel, :mail, :pass, :genero, :fecha_naci, :servicio)";
+    $insertarCliente = "INSERT INTO CLIENTES (ID_TIPO_CLI,NOMBRE,APELLIDO,IDENTIFICACION,TELEFONO,EMAIL,PASSW,GENERO,FECHA_NAC,ID_SERV) VALUES(:tipo, :nom, :apell, :iden, :dir, :tel, :mail, :pass, :genero, :fecha_naci, :servicio)";
     $stmt = oci_parse($conexion, $insertarCliente);
         
     $id_cliente = +1;
-    oci_bind_by_name($stmt, ':id',$id_cliente);
+    // oci_bind_by_name($stmt, ':id',$id_cliente);
     oci_bind_by_name($stmt, ':tipo',$tipo_cli);
     oci_bind_by_name($stmt, ':nom',$nombre);
     oci_bind_by_name($stmt, ':apell',$apellido);
@@ -28,10 +28,10 @@ require('../../php/variablesGlobCuentaCli.php');
 
     $resultCli = oci_execute($stmt, OCI_COMMIT_ON_SUCCESS);
 
-    $insertarCalle = "INSERT INTO CALLE VALUES (:id_ca, :calle, :hogar, :numero, :id_cli)";
+    $insertarCalle = "INSERT INTO CALLE(CALLE,TIPO_HOGAR, NUM_HOGAR) VALUES (:calle, :hogar, :numero)";
     $calle = oci_parse($conexion, $insertarCalle);
 
-    oci_bind_by_name($calle, ':id_ca',$id_ca);
+    // oci_bind_by_name($calle, ':id_ca',$id_ca);
     oci_bind_by_name($calle, ':calle',$calleCl);
     oci_bind_by_name($calle, ':hogar',$tipo_hogar);
     oci_bind_by_name($calle, ':numero',$num_hogar);
@@ -39,11 +39,11 @@ require('../../php/variablesGlobCuentaCli.php');
 
     $resultCalle = oci_execute($calle, OCI_COMMIT_ON_SUCCESS);
 
-    $insertarCuenta = "INSERT INTO CUENTA VALUES(:id_cu, :id_cli, :tipo, :num, :saldo, :fecha)";
+    $insertarCuenta = "INSERT INTO CUENTA(ID_TIPO_CUENTA,NUM_CUENTA,SALDO,FECHA_APERTURA) VALUES(:tipo, :num, :saldo, :fecha)";
     $cuenta = oci_parse($conexion, $insertarCuenta);
     $id_cuenta = +1;
-    oci_bind_by_name($cuenta, ':id_cu',$id_cuenta);
-    oci_bind_by_name($cuenta, ':id_cli',$id_cliente);
+    // oci_bind_by_name($cuenta, ':id_cu',$id_cuenta);
+    // oci_bind_by_name($cuenta, ':id_cli',$id_cliente);
     oci_bind_by_name($cuenta, ':tipo',$tipo_cuenta);
     oci_bind_by_name($cuenta, ':num',$num_cuenta);
     oci_bind_by_name($cuenta, ':saldo',$saldo);

@@ -51,7 +51,7 @@
         while($fila = oci_fetch_assoc($ejecutar) ){
             $id++; 
     ?><tr>  
-            <td> <?php echo $fila['ID_CLIENTE']; ?></td>
+            <td> <?php echo $id; ?></td>
             <td><?php 
             
                 echo $fila['DESCRIPCION']; ?>

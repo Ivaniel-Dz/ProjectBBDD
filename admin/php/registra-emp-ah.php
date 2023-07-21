@@ -9,12 +9,10 @@ require('../../php/variablesGlobalesEmp.php');
     $id_calle=0;
     $id_serv = 1;
 
-    $insertarEmpresa = "INSERT INTO EMPRESA (ID_EMPRESA,NOMBRE,ACRONIMO, NIF,TELEFONO,CORREO,PASS, ID_TIPO_CUENTA, ID_SERV)
-    VALUES(:id, :nom, :apell, :iden, :tel, :mail, :pass, :tipo_emp, :servicio)";
+    $insertarEmpresa = "INSERT INTO EMPRESA (NOMBRE,ACRONIMO, NIF,TELEFONO,CORREO,PASS, ID_TIPO_CUENTA, ID_SERV)
+    VALUES(:nom, :apell, :iden, :tel, :mail, :pass, :tipo_emp, :servicio)";
     $stmt = oci_parse($conexion, $insertarEmpresa);
         
-    $id_empresa = +1;
-    oci_bind_by_name($stmt, ':id',$id_empresa);
     oci_bind_by_name($stmt, ':nom',$nombre_empr);
     oci_bind_by_name($stmt, ':apell',$acronimo_empr);
     oci_bind_by_name($stmt, ':iden',$nif_empr);
@@ -26,22 +24,21 @@ require('../../php/variablesGlobalesEmp.php');
 
     $resultEmpresa = oci_execute($stmt, OCI_COMMIT_ON_SUCCESS);
 
-    $insertarCalleEmpresa = "INSERT INTO CALLE_EMPR VALUES (:id_ca, :calle, :hogar, :numero, :id_emp)";
+    $insertarCalleEmpresa = "INSERT INTO CALLE_EMPR (CALLE,TIPO_LOCAL,NUM_LOCAL) VALUES (:calle, :hogar, :numero)";
     $calleEmpresa = oci_parse($conexion, $insertarCalleEmpresa);
 
-    oci_bind_by_name($calleEmpresa, ':id_ca',$id_calle);
     oci_bind_by_name($calleEmpresa, ':calle',$calle_empr);
     oci_bind_by_name($calleEmpresa, ':hogar',$tipo_local);
     oci_bind_by_name($calleEmpresa, ':numero',$num_local);
-    oci_bind_by_name($calleEmpresa, ':id_emp',$id_empresa);
+    // oci_bind_by_name($calleEmpresa, ':id_emp',$id_empresa);
 
     $resultCalleEmpresa = oci_execute($calleEmpresa, OCI_COMMIT_ON_SUCCESS);
 
-    $insertarCuentaEmpresa = "INSERT INTO CUENTA_EMP VALUES(:id_cu, :id_emp, :tipo, :num, :saldo, :fecha)";
+    $insertarCuentaEmpresa = "INSERT INTO CUENTA_EMP(ID_TIPO_CUENTA,NUM_CUENTA,SALDO, FECHA_APERTURA) VALUES(:tipo, :num, :saldo, :fecha)";
     $cuentaEmpresa = oci_parse($conexion, $insertarCuentaEmpresa);
     $id_cuenta = +1;
-    oci_bind_by_name($cuentaEmpresa, ':id_cu',$id_cuenta);
-    oci_bind_by_name($cuentaEmpresa, ':id_emp',$id_empresa);
+    // oci_bind_by_name($cuentaEmpresa, ':id_cu',$id_cuenta);
+    // oci_bind_by_name($cuentaEmpresa, ':id_emp',$id_empresa);
     oci_bind_by_name($cuentaEmpresa, ':tipo',$id_tip_cuenta);
     oci_bind_by_name($cuentaEmpresa, ':num',$num_cuen_empr);
     oci_bind_by_name($cuentaEmpresa, ':saldo',$saldo_empr);
@@ -49,13 +46,13 @@ require('../../php/variablesGlobalesEmp.php');
     
     $resultCuentaEmpresa = oci_execute($cuentaEmpresa, OCI_COMMIT_ON_SUCCESS);
 
-    $insertDirEmpresa = "INSERT INTO DIR_EMPRESA VALUES (:dir_emp, :prov_emp, :dist_emp, :corr_emo, :empresa)";
+    $insertDirEmpresa = "INSERT INTO DIR_EMPRESA(PROVINCIA,DISTRITO,CORREGIMIENTO) VALUES ( :prov_emp, :dist_emp, :corr_emo)";
     $dirEmpresa = oci_parse($conexion, $insertDirEmpresa);
-    oci_bind_by_name($dirEmpresa, ':dir_emp', $dir_emp);
+    // oci_bind_by_name($dirEmpresa, ':dir_emp', $dir_emp);
     oci_bind_by_name($dirEmpresa, ':prov_emp', $prov_emp);
     oci_bind_by_name($dirEmpresa, ':dist_emp', $dist_emp);
     oci_bind_by_name($dirEmpresa, ':corr_emo', $correg_emp);
-    oci_bind_by_name($dirEmpresa, ':empresa', $id_empresa);
+    // oci_bind_by_name($dirEmpresa, ':empresa', $id_empresa);
 
     $resultDirEmpresa = oci_execute($dirEmpresa, OCI_COMMIT_ON_SUCCESS);
     
