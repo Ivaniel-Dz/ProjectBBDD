@@ -1,14 +1,14 @@
 # Pagina web de una Financiera
 
 >**Indice**
->- [Descripción](#d1)
->- [Sistema propuesto](#d2)
->- [Contenido del proyecto](#d3)
->- [Metodología](#d4)
->- [Diagrama Entidad-Relación](#d5)
->- [Diagrama de DATA MODEL](#d6)
->- [Tecnologías](#d7)
->- [Preview de la pagina web](#d8)
+>- [Descripción](#id1)
+>- [Sistema propuesto](#id2)
+>- [Contenido del proyecto](#id3)
+>- [Metodología](#id4)
+>- [Diagrama Entidad-Relación](#id5)
+>- [Diagrama de DATA MODEL](#id6)
+>- [Tecnologías](#id7)
+>- [Preview de la pagina web](#id8)
 
 ## Descripción <a name="id1"></a>
 **Objetivo General:** Analizar, Diseñar e implementar una base de datos para la gestión empresarial de un intermediario financiero, así administrar las afiliaciones de los socios correspondientes a la cooperativa.
